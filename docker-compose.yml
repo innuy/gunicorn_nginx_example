@@ -1,0 +1,14 @@
+django_server:
+  container_name: django_server
+  build: .
+  ports:
+    - "80:80"
+    - "8000:8000"
+  volumes:
+    # Nginx configuration
+    - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    # Supervisor configuration
+    - ./config/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+    - ./config/supervisor/djangoapp.conf:/etc/supervisor/conf.d/djangoapp.conf
+    # Django app
+    - ./:/usr/src/app
