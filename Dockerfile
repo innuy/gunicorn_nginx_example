@@ -25,15 +25,11 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 EXPOSE 80 8000 443
 
-#CMD ["nginx", "-g", "daemon off;"]
-
 # Django and gunicorn installation
 COPY ./app /app
 
 RUN pip install -r /app/requirements.txt
 
 # Supervisor service run
-#RUN /etc/init.d/supervisor start
-#CMD ["nginx", "-g", "daemon off;"]
 COPY ./run.sh /run.sh
 CMD /run.sh
