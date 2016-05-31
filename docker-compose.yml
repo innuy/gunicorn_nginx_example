@@ -11,4 +11,4 @@ django_server:
     - ./config/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
     - ./config/supervisor/djangoapp.conf:/etc/supervisor/conf.d/djangoapp.conf
     # Django app
-    - ./:/usr/src/app
+    - ./app:/app
